@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MidnightFiles OAuth Callback</title>
+</head>
+<body>
+  <h1>MidnightFiles TikTok Login</h1>
+  <p>Copy the authorization code below:</p>
+
+  <pre id="code"></pre>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const state = params.get("state");
+    const error = params.get("error");
+
+    document.getElementById("code").textContent =
+      error
+        ? "ERROR: " + error
+        : "code=" + code + "\nstate=" + state;
+  </script>
+</body>
+</html>
